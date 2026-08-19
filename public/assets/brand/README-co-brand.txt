@@ -1,1 +1,0 @@
-Co-brand raster assets are installed separately for desktop and mobile display.
