@@ -13,7 +13,7 @@
   const gate=(url,label,source,model='')=>`resources.html?url=${encodeURIComponent(url)}&label=${encodeURIComponent(label)}&source=${encodeURIComponent(source)}${model?`&model=${encodeURIComponent(model)}`:''}`;
   const header=document.querySelector('[data-shell="header"]');
   if(header){
-    header.outerHTML=`<header class="site-header"><div class="header-inner"><a class="brand-lock" href="index.html" aria-label="TAGRO ECHO home"><img src="assets/brand/tagro-logo-actual.webp" alt="TAGRO"><span aria-hidden="true">×</span><img src="assets/brand/echo-logo-dark.svg" alt="ECHO"></a><nav class="primary-nav" aria-label="Primary">${nav.map(([k,u,l])=>`<a href="${u}" class="${page===k?'active':''}">${icons[k]}<span>${l}</span></a>`).join('')}</nav></div></header>`;
+    header.outerHTML=`<header class="site-header"><div class="header-inner"><a class="brand-lock" href="index.html" aria-label="TAGRO ECHO home"><img class="tagro-mark" src="assets/brand/tagro-logo.png" alt="TAGRO"><span class="brand-cross" aria-hidden="true">×</span><img class="echo-mark" src="assets/brand/echo-logo-dark.svg" alt="ECHO"></a><nav class="primary-nav" aria-label="Primary navigation">${nav.map(([k,u,l])=>`<a href="${u}" class="${page===k?'active':''}">${icons[k]}<span>${l}</span></a>`).join('')}</nav></div></header>`;
   }
   const footer=document.querySelector('[data-shell="footer"]');
   if(footer){
