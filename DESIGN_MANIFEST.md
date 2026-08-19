@@ -2,89 +2,94 @@
 
 **Status:** Governing design contract for all current and future public UI/UX work in this repository.
 
-**Purpose:** Define, from first principles, how the TAGRO × ECHO site must look, behave and persuade. This document replaces all previous design-manifest guidance. Future contributors and AI agents must read it completely before changing public pages.
+**Purpose:** Define how the TAGRO × ECHO public site must look, behave, persuade and retain trust. Every contributor and AI agent must read this document completely before changing public pages.
 
 ---
 
-## 1. The visitor arrives with almost no obligation to stay
+## 1. The visitor owes us nothing
 
-A visitor may arrive:
+Most visitors will not arrive as committed buyers.
+
+They may come:
 
 - accidentally from Google
-- from a social-media post
-- from a shared link
-- from a product search
-- because TAGRO sent a direct link
+- from social media
+- from a shared product link
+- from a direct TAGRO message
+- while casually comparing machines
 - because they already own a machine and need help
 
-The site must assume low commitment and limited attention.
+Assume low commitment, limited attention and no knowledge of ECHO model numbers.
 
-The first responsibility is not to explain the website. It is to make the visitor immediately feel:
+The first task is therefore not to explain the website. The first task is to make the visitor feel, quickly:
 
-1. **This is relevant to me.**
+1. **This is relevant.**
 2. **This looks credible.**
-3. **There is something here worth looking at.**
-4. **I know what I can do next.**
+3. **There is something here worth exploring.**
+4. **I know where I can go next.**
 
-The public experience should therefore be designed around a short persuasion window of roughly three minutes.
+Roughly 80% of traffic may be casual browsing rather than immediate purchase intent. The experience must therefore work both for today’s enquiry and for a visitor who remembers TAGRO × ECHO and returns later.
 
-### Attention sequence
+---
 
-**0–10 seconds — recognition**
+## 2. Three-minute attention architecture
 
-The visitor should see:
+Design around a short persuasion window without forcing a funnel.
 
-- TAGRO × ECHO identity
+### 0–10 seconds — recognition
+
+The visitor should immediately see:
+
+- visible **TAGRO × ECHO** identity
 - real ECHO machines
 - what kind of work/products the site covers
 - one obvious way to browse or ask for help
 
-**10–45 seconds — relevance**
+### 10–45 seconds — relevance
 
-The visitor should be able to scan multiple products quickly and understand:
+The visitor should be able to scan several products and understand:
 
 - what each machine is
-- what kind of work it suits
+- what work it suits
 - 2–4 important facts
-- approximate MRP
+- MRP
 
-**45–120 seconds — confidence**
+### 45–120 seconds — confidence
 
-The visitor should be able to open a machine and understand:
+On a product page the visitor should quickly understand:
 
-- why it is worth considering
-- its key specifications
-- what differentiates it
-- whether it fits their use
-- what alternatives or support exist
+- why the model is worth considering
+- key specifications
+- its real differentiator
+- whether it may fit their use
+- nearby alternatives or support
 
-**120–180 seconds — action**
+### 120–180 seconds — action
 
-A useful next step should be obvious:
+Useful next steps should be clear:
 
 - Ask AI
 - compare
 - request an estimate
 - contact TAGRO
-- find a manual
-- find parts
+- manuals
+- parts
 - continue browsing
 
-Do not force this sequence. The visitor remains in control and can enter at any stage.
+The visitor remains in control and may enter or leave at any stage.
 
 ---
 
-## 2. Governing principle
+## 3. Governing principle
 
-**The product and the visitor's task are the heroes. The interface is only the guide.**
-
-The site must not be designed around pages, database fields, internal workflows or decorative marketing sections.
+**The machine and the visitor’s task are the heroes. The interface is only the guide.**
 
 Every visible element must help one or more of these jobs:
 
 - recognise
 - understand
 - become interested
+- browse
 - choose
 - compare
 - verify
@@ -93,40 +98,40 @@ Every visible element must help one or more of these jobs:
 - find a manual or part
 - ask for help
 - contact TAGRO
+- return later without relearning the site
 
 If an element does not materially help one of those jobs, remove it.
 
 ---
 
-## 3. Flawlessness is a release priority
+## 4. Flawlessness is a release priority
 
-Perceived imperfection damages trust disproportionately.
+Visible imperfection damages trust disproportionately.
 
-One visible defect can outweigh many good design decisions:
+One defect can outweigh many good design decisions:
 
-- broken image
+- missing or invisible TAGRO logo
 - wrong machine image
-- clipped logo
-- awkward spacing
-- unexplained control
-- missing fact
-- contradictory price
+- broken image
+- clipped brand mark
+- title hidden by navigation
+- fixed navigation covering content
+- unexpected horizontal page scroll
 - dead-end link
+- contradictory price
+- vague action label
 - unexpected external redirect
-- horizontal overflow
-- content hidden by navigation
-- inconsistent button treatment
 - long empty regions
-- vague wording
+- controls separated from the content they affect
 
 **Flaw-first review comes before visual polish.**
 
-Review every page in this order:
+Review in this order:
 
 1. incorrect/broken content
 2. rendering defects
 3. navigation and dead ends
-4. missing or contradictory information
+4. missing/contradictory information
 5. cognitive pressure or uncertainty
 6. hierarchy and hook
 7. visual refinement
@@ -135,84 +140,130 @@ A page is not ready because it is mostly correct.
 
 ---
 
-## 4. Design standards and references
+## 5. Standards and quality references
 
-Use these as quality references, not certification claims:
+Use as design references, not certification claims:
 
 - **ISO 9241-210:2019** — human-centred design
 - **ISO 9241-110:2020** — interaction principles
-- **ISO/IEC 25010:2023** — product/software quality
+- **ISO/IEC 25010:2023** — software/product quality
 - **ISO/IEC 40500** and current WCAG guidance — accessibility
 
-The experience must be:
-
-- task-suitable
-- self-descriptive
-- predictable
-- controllable
-- error-tolerant
-- accessible
-- consistent
-- performant
+The experience must be task-suitable, self-descriptive, predictable, controllable, accessible, error-tolerant, performant and consistent.
 
 ---
 
-## 5. Desktop and mobile are separate experiences
+## 6. Desktop and mobile are separate experiences
 
-Do not design desktop first and merely squeeze it into a smaller viewport.
+Do not design desktop first and merely squeeze it into mobile.
 
 Shared:
 
-- data
+- product data
 - brand assets
 - terminology
-- product hierarchy
 - navigation destinations
-- accessibility rules
 - action semantics
+- accessibility rules
 
 ### Desktop
 
-Desktop should use width to improve:
+Use width to improve comparison and scanning, not to spread related elements apart.
 
-- comparison
-- product visibility
-- scanning
-- side-by-side understanding
-
-Do not stretch components across the entire monitor simply because space exists.
-
-Use a coherent working canvas, generally around **1280–1440 px maximum content width**, so related information stays visually connected.
+Use a coherent working canvas around **1280–1440 px** maximum content width.
 
 ### Mobile
 
-Mobile should be:
+Mobile must be:
 
 - vertical-first
 - thumb-friendly
 - compact
 - image-led
 - easy to scan one-handed
-- free from unnecessary horizontal browsing
+- free from accidental horizontal page overflow
 
-Primary product discovery on mobile should normally use **vertical product rows** with thumbnail + model + classification + key facts + MRP.
+Primary mobile product discovery should use vertical rows with image + model + classification + useful facts + MRP.
 
-Horizontal scrolling is acceptable only when it clearly improves a secondary task.
+Horizontal scrolling is acceptable only for compact secondary navigation, not as the main catalogue experience.
 
 ---
 
-## 6. Visual character
+## 7. Persistent navigation and freedom
+
+The visitor must never feel trapped on a page.
+
+Primary destinations remain visible on every public page:
+
+1. Equipment
+2. Support
+3. Parts
+4. Ask AI
+
+A second persistent product-classification navigation must also be available on every public page:
+
+- All equipment
+- Chainsaws
+- Brushcutters
+- Hedge trimmers
+- Blowers
+- Other equipment
+
+A visitor on Support, Parts, AI or a model page must be able to jump directly into another classification without returning to Home first.
+
+### Desktop
+
+Use compact sticky top navigation plus a light classification row.
+
+### Mobile
+
+Use:
+
+- a compact sticky brand/header area
+- a compact classification strip beneath it
+- persistent thumb-accessible primary navigation
+
+Fixed navigation must reserve real layout space. It must **never cover titles, content, forms, footer actions or the last product row**.
+
+Safe-area spacing must be respected.
+
+---
+
+## 8. Brand lock-up
+
+Every public page must visibly show:
+
+**TAGRO × ECHO**
+
+Rules:
+
+- real supplied TAGRO logo
+- official ECHO logo
+- TAGRO first
+- preserve natural aspect ratios
+- size logos by one dimension where possible; do not force mismatched width/height boxes
+- never crop or stretch either logo
+- both must remain readable on mobile and desktop
+- provide an asset fallback if the preferred TAGRO asset fails to load
+
+A logo existing in the DOM but not visibly rendering is a release failure.
+
+The visitor must understand that TAGRO is the seller/support relationship and ECHO is the equipment brand.
+
+---
+
+## 9. Visual character
 
 The site should feel:
 
 - current
 - quiet
-- premium without luxury affectation
-- technically competent
 - product-led
 - trustworthy
+- technically competent
 - easy to scan
 - locally useful
+- memorable enough to revisit
 
 It must not feel like:
 
@@ -221,319 +272,129 @@ It must not feel like:
 - a workshop database
 - a generic SaaS template
 - a slogan-heavy landing page
-- an early-2000s dealer website
-- a page made of disconnected rounded boxes
+- disconnected rounded boxes
 
 ---
 
-## 7. Colour system
+## 10. Colour system
 
-White remains the dominant surface.
+White remains dominant.
 
-Approximate visual proportion:
+Approximate proportions:
 
-- **White / near-white:** 78–85%
-- **Near-black / dark text:** 10–14%
-- **ECHO orange:** 3–5%
-- **Warm/light grey:** 4–8%
+- White / near-white: **78–85%**
+- Near-black / dark text: **10–14%**
+- ECHO orange: **3–5%**
+- Warm/light grey: **4–8%**
 
-These are design proportions, not mathematical quotas.
+Orange is an accent, not a theme.
 
-### White
-
-Use for:
-
-- page background
-- content surfaces
-- navigation
-- cards
-- forms
-
-### Near-black
-
-Use for:
-
-- primary text
-- selected navigation
-- important actions
-- high-confidence hierarchy
-
-Do not use giant black hero panels.
-
-### ECHO orange
-
-Use sparingly for:
-
-- brand emphasis
-- one important action in a local area
-- active indicators
-- small highlights
-
-Orange is an accent, not a page theme.
-
-### Grey
-
-Use only to create hierarchy:
-
-- product image wells
-- dividers
-- secondary information
-- inactive controls
-
-Colour must never be the only indication of state.
+Colour must never be the only indicator of state.
 
 ---
 
-## 8. Typography
+## 11. Typography
 
-Use **one primary UI font family**.
+Use one primary UI font family: modern system sans / Inter-like.
 
-Preferred stack:
+Use approximately three weights:
 
-- modern system sans / Inter-like stack
-
-Brand logos remain artwork.
-
-### Weight discipline
-
-Use three practical levels:
-
-- Regular: 400–450
-- Semibold: 600–650
-- Bold: 700–800
+- Regular 400–450
+- Semibold 600–650
+- Bold 700–800
 
 Avoid widespread 900/950 weights.
 
-If everything is heavy, nothing has hierarchy.
+### Desktop
 
-### Desktop targets
+- Page title: 36–44 px
+- Product/model: 30–40 px
+- Section heading: 22–28 px
+- Body: 16–18 px
+- Supporting text: 14–15 px
 
-- Page title: **36–44 px**
-- Product/model name: **30–40 px**
-- Section heading: **22–28 px**
-- Body: **16–18 px**
-- Supporting text: **14–15 px**
-- Metadata: **12–13 px minimum where practical**
+### Mobile
 
-### Mobile targets
-
-- Page title: **27–32 px**
-- Product/model name: **21–27 px**
-- Section heading: **19–23 px**
-- Body: **16 px**
-- Supporting text: **13–14 px**
-
-### Line height
-
-- Body/interface: approximately **1.4–1.55**
-- Headings: approximately **1.05–1.15**
+- Page title: 27–32 px
+- Product/model: 21–27 px
+- Section heading: 19–23 px
+- Body: 16 px
+- Supporting text: 13–14 px
 
 Use whitespace and grouping before increasing font size.
 
 ---
 
-## 9. Brand lock-up
+## 12. Equipment discovery
 
-Every public page must visibly show:
+The Equipment page must be product-led from the first viewport.
 
-**TAGRO × ECHO**
+Do not spend the first screen explaining the site.
 
-Rules:
+Show:
 
-- use the real supplied TAGRO logo
-- use the official ECHO logo
-- TAGRO appears first
-- preserve both aspect ratios
-- never crop, stretch or substitute either mark
-- both must remain clearly readable on desktop and mobile
-- do not render TAGRO as an invisible/tiny mark beside ECHO
-
-The visitor must immediately understand that TAGRO is the seller/support relationship and ECHO is the equipment brand.
-
----
-
-## 10. Navigation
-
-Primary destinations remain:
-
-1. Equipment
-2. Support
-3. Parts
-4. Ask AI
-
-The meaning and order remain stable everywhere.
-
-### Desktop
-
-Use compact top navigation. Navigation should not visually overpower the brand or products.
-
-### Mobile
-
-Use a compact thumb-accessible pattern. If bottom navigation is used, it must:
-
-- not cover content
-- have text labels
-- remain visually light
-- preserve safe-area spacing
-
-Navigation labels must not depend on icon interpretation alone.
-
----
-
-## 11. Home / Equipment page
-
-The Equipment page must be **product-led from the first viewport**.
-
-Do not spend the first screen explaining the website.
-
-### First desktop view should show
-
-- TAGRO × ECHO brand
+- TAGRO × ECHO identity
 - one short relevance statement
 - compact help/search controls
-- actual product imagery immediately
+- real machines immediately
 
-A visitor should see real machines before scrolling far.
+Search is secondary because many visitors do not know a model number.
 
-### Intro copy
+Filters must remain compact and understandable.
 
-Use at most one short relevance statement, for example:
-
-**ECHO outdoor power equipment for farm, estate and professional work.**
-
-Avoid large generic statements such as “Find the machine that fits the work” if they consume space without adding information.
-
-### Help action
-
-**Help me choose** should be visible but connected to the product-discovery area, not isolated in a large empty region.
-
-### Search
-
-Search is secondary.
-
-A visitor who knows a model should be able to search quickly, but the site must not demand a search term from someone who does not know what they want.
-
-### Filters
-
-Keep filters compact.
-
-Use clear task/category labels such as:
-
-- All
-- Chainsaws
-- Brushcutters
-- Hedge trimmers
-- Blowers
-- Other equipment
-
-Avoid oversized pill rows that resemble a control panel.
+The classification selected from persistent navigation must remain selected when Equipment opens.
 
 ---
 
-## 12. Product discovery cards
+## 13. Product cards
 
-### Information order
-
-The eye should encounter:
+Information order:
 
 1. machine image
 2. model
-3. classification / use
-4. 2–4 useful buyer facts
+3. classification/use
+4. 2–4 buyer facts
 5. MRP
-6. next action implied by the clickable card
 
-### Desktop
+Desktop: clean 3–4 column grid where images carry strong visual weight.
 
-Use a clean 3–4 column grid depending on width.
+Mobile: vertical list row, approximately 95–120 px image at left and concise information at right.
 
-Images should carry strong visual weight, generally around 45–55% of card height.
-
-Cards should not be over-framed with heavy chrome.
-
-### Mobile
-
-Use vertical list rows:
-
-- image approximately 95–120 px at left
-- model and classification at right
-- key facts below
-- MRP visible
-- entire row tappable
-
-Do not use the main mobile catalogue as a horizontal carousel.
+The full row/card should be tappable.
 
 ---
 
-## 13. Model page
+## 14. Model page
 
-The model page is the principal persuasion and decision page.
+The model page is the main persuasion/decision page.
 
-### First view must resolve
+The first view must resolve:
 
 - what machine this is
 - what it is good for
 - why it is worth considering
-- 4–6 important facts
+- 4–6 useful facts
 - MRP
-- the next useful action
+- one clear next action
 
-### Desktop composition
+Every model should have an evidence-based hook: low weight, high output, professional construction, high torque, reach, larger bar capacity, backpack format, etc.
 
-Use product image and product summary as a visually connected pair, not two isolated blocks.
+Typical action hierarchy:
 
-### Mobile composition
-
-Image first, then concise summary, facts and one primary action.
-
-### Buyer facts
-
-Where applicable, prioritise:
-
-- displacement / power
-- dry weight
-- bar / cutting attachment / working capacity
-- chain specification
-- fuel capacity
-- chain oil / relevant tank capacity
-- 2–4 distinctive features
-
-Do not leave blank fact boxes.
-
-### Product hook
-
-Every model page should contain at least one real differentiator, such as:
-
-- unusually low weight
-- stronger output
-- professional construction
-- high-torque gearbox
-- larger bar capacity
-- backpack format
-- reach/articulation
-
-A hook must be evidence-based, not a slogan.
-
-### Actions
-
-One action should dominate locally.
-
-Typical hierarchy:
-
-1. **Ask if this fits my work**
+1. Ask if this fits my work
 2. Compare
 3. Manuals & parts
 4. Contact / estimate
 
+Persistent primary and classification navigation remain available.
+
 ---
 
-## 14. Support page
+## 15. Support
 
-Support must feel like a product-support service, not a database index.
+Support is a task experience, not a database index.
 
-### Intro
-
-Keep it compact:
+Keep the intro compact:
 
 **Support**
 
@@ -541,39 +402,24 @@ Keep it compact:
 
 [model search]
 
-Then show machines immediately.
+Show machines immediately.
 
-Do not occupy a large first-screen area explaining that manuals are attached to machines.
+Group support actions close to the machine. Prefer specific labels such as:
 
-### Desktop support result
-
-Use a compact machine card/row with:
-
-- visible image
-- model
-- classification
-- available support actions grouped close to the machine
-
-Possible actions, only when applicable:
-
-- Manual
+- Operator manual
 - Maintenance
 - Parts
 - Ask
 
-Do not place “View support” hundreds of pixels away from the model.
-
-Do not use vague action labels when a more specific label exists.
+Avoid vague “View support” when the destination can be named more precisely.
 
 ---
 
-## 15. Parts page
+## 16. Parts
 
 Parts is a task page.
 
-### Intro
-
-Keep it compact:
+Keep the intro compact:
 
 **Parts**
 
@@ -583,32 +429,19 @@ Keep it compact:
 
 Then show models immediately.
 
-Do not explain site architecture or external-link behaviour in the headline area.
-
-### Model result
-
-Show:
-
-- image
-- model
-- classification
-- clear resource status/actions
-
-Possible actions:
+Possible precise actions:
 
 - Parts catalogue
 - Common service parts
 - Ask TAGRO
 
-If no exact resource exists, do not imply that it does.
+Do not imply an exact resource exists when it does not.
 
 ---
 
-## 16. AI page
+## 17. AI
 
-AI should feel like a knowledgeable product adviser, not a generic chatbot.
-
-### First view
+AI must feel like a knowledgeable ECHO adviser, not a generic chatbot.
 
 Lead with:
 
@@ -618,74 +451,77 @@ Supporting line:
 
 **Tell me the job, approximate size and how often you use the machine. I’ll narrow it down.**
 
-Then immediately show:
+Show lightweight intent prompts and the free-text field immediately.
 
-- a few lightweight starter prompts
-- free-text input
-
-Do not create a large empty chat region before the user interacts.
-
-### Starter prompts
-
-Prefer intent-based prompts such as:
+Prefer prompts such as:
 
 - Cutting trees
 - Clearing grass / brush
 - I already have a machine
 - I need a manual or part
 
-Estimate is generally a later-stage action, not the primary first impression.
+If arriving from a model page, acknowledge the model visibly.
 
-### Context continuity
-
-If the visitor arrives from a model page, the AI should visibly acknowledge it:
-
-**You’re looking at CS-620SX. What are you planning to use it for?**
-
-### Behaviour
-
-Use:
+Behaviour:
 
 **Grab → Clarify → Narrow → Recommend**
 
-Ask only the missing questions that materially change the answer.
-
-Do not guess local Malayalam tree names or unknown terminology.
+Do not guess unfamiliar local tree names or terminology.
 
 ---
 
-## 17. External links and visitor control
+## 18. Casual browsing and return value
+
+The site must reward exploration even when the visitor does not buy today.
+
+Design for memory and re-entry through:
+
+- stable TAGRO × ECHO brand treatment
+- consistent classification names
+- predictable navigation locations
+- memorable real machine imagery
+- concise differentiators
+- no forced registration
+- no popups
+- no pressure language
+- links that are easy to share and reopen
+
+A casual browser should be able to leave with a clear mental memory such as:
+
+**“TAGRO has the ECHO range, I saw the machines clearly, and I can find that chainsaw/brushcutter again.”**
+
+---
+
+## 19. External links and visitor control
 
 No silent external departures.
 
-Any normal browsing link that leaves TAGRO must first open the internal Resources/exit page.
-
-The exit page must state:
+Any ordinary web link leaving TAGRO first opens the internal Resources page showing:
 
 - resource title
 - destination/operator
 - that the visitor is leaving TAGRO
-- that the destination may use its own cookies, analytics or privacy practices
+- that the destination may have its own cookies, analytics or privacy practices
 
-The visitor then chooses whether to continue.
+Only the visitor’s explicit Continue action opens the external site.
 
-Direct user-initiated contact actions such as email or WhatsApp may open their respective apps/services without an additional browsing gate.
+Direct user-initiated WhatsApp and email actions may remain direct.
 
 ---
 
-## 18. Contact actions
+## 20. Contact
 
-Contact must be available but quiet.
+Contact must remain available but quiet.
 
 Allowed:
 
 - WhatsApp icon
 - Email icon
-- clear text link in contact/footer areas where useful
+- clear contact/footer text where useful
 
 Do not:
 
-- expose internal notification numbers as page copy
+- display internal notification numbers
 - use floating WhatsApp bubbles
 - use popups
 - animate contact prompts
@@ -693,78 +529,63 @@ Do not:
 
 ---
 
-## 19. Whitespace and composition
+## 21. Whitespace and composition
 
-Whitespace is used to clarify relationships, not merely to make pages look minimal.
+Whitespace clarifies relationships.
 
-Good whitespace separates groups.
+It must not separate related objects.
 
-Bad whitespace separates related items.
+Avoid:
 
-Avoid patterns such as:
-
-**machine → hundreds of pixels of emptiness → action**
+**machine → huge empty gap → action**
 
 or
 
-**headline → huge empty field → CTA**
+**headline → empty field → CTA**
 
 Keep related information physically close.
 
 ---
 
-## 20. Information haze is a defect
+## 22. Information haze is a defect
 
-The visitor should not leave a section wondering:
+The visitor should not wonder:
 
-- what this machine is
-- what a button will do
-- whether a manual actually exists
-- whether a parts link is exact
-- whether the price includes GST
+- what a machine is
+- what a button does
+- whether a manual exists
+- whether parts information is exact
+- whether MRP includes GST
 - whether a link leaves TAGRO
+- how to move to another product type
 - what to do next
 
-Use precise labels.
-
-Prefer:
+Prefer precise labels:
 
 - Operator manual
 - Parts catalogue
 - Ask about this model
 - Compare
 
-Avoid:
-
-- Open
-- View support
-- View parts
-- Learn more
-
-unless the destination is genuinely broad.
+Avoid generic “Open”, “Learn more” or “View” where a precise action is available.
 
 ---
 
-## 21. Price presentation
+## 23. Price
 
-The supplied public MRP is GST-inclusive.
+Public MRP is GST-inclusive.
 
 Use:
 
 **MRP ₹35,500 incl. GST**
 
-Do not use:
-
-- MRP + GST
-- ambiguous pre-tax pricing as the primary public price
-
-If a future selling/offer price is added, distinguish it clearly from MRP.
+Do not use ambiguous “MRP + GST”.
 
 ---
 
-## 22. Images
+## 24. Images
 
-Every public model should have a usable image.
+Every public model should have a usable machine image.
 
 Source priority:
 
@@ -772,208 +593,138 @@ Source priority:
 2. official ECHO regional material
 3. reputable interim third-party source only when necessary
 
-### Image rules
+Images must preserve aspect ratio, contain the complete machine where practical, use meaningful alt text and lazy-load below the fold.
 
-- correct machine/model
-- preserve aspect ratio
-- contain, do not crop essential machine parts
-- neutral image well
-- optimised dimensions and file size
-- lazy-load below fold
-- meaningful alt text
-
-Broken or mismatched product imagery is a release blocker.
+A broken/missing image is a release defect.
 
 ---
 
-## 23. Data and content discipline
-
-Public content and internal evidence must be separated.
-
-Public product data may contain:
-
-- identity
-- category
-- application
-- buyer specs
-- features
-- price
-- image
-- public resources
-- accessories
-
-Internal/source data may contain:
-
-- provenance
-- verification status
-- suffix warnings
-- serial applicability
-- dealer-only notes
-- unresolved document matching
-
-Internal notes must never leak into public copy.
-
-Do not silently invent missing values.
-
----
-
-## 24. Accessibility
+## 25. Accessibility and physical usability
 
 Required baseline:
 
 - semantic HTML
-- logical heading order
-- keyboard-accessible controls
+- keyboard access
 - visible focus
-- meaningful labels
-- useful alt text
+- meaningful labels and alt text
 - adequate contrast
-- important touch targets around 40–48 px where practical
+- important mobile targets around 40–48 px where practical
 - no information conveyed by colour alone
-- no content loss when text is enlarged
-- layout tolerant of increased text spacing
-
-Do not shrink important text merely to fit more content.
+- no content loss at increased text size/spacing
+- logical heading order
+- no navigation overlaying content
 
 ---
 
-## 25. Performance
+## 26. Performance
 
-Pages must feel immediate.
+The site should feel immediate.
 
-Requirements:
-
-- avoid unnecessary frameworks/libraries
+- avoid unnecessary libraries
 - minimise render-blocking assets
-- optimise product images
-- lazy-load below-fold images
-- avoid giant remote assets
+- optimise images
+- lazy-load below-fold imagery
+- avoid oversized remote assets
 - avoid duplicate CSS systems
-- load only the data required for the page
-- degrade gracefully on average mobile networks
+- keep average mobile-network use in mind
 
 ---
 
-## 26. Component discipline
+## 27. Component discipline
 
-Common public components must have shared rules and implementation:
+Shared components must remain shared:
 
 - header
-- brand lock-up
-- navigation
+- TAGRO × ECHO lock-up
+- primary navigation
+- classification navigation
 - product card/row
-- price
-- fact item
-- buttons/actions
-- footer
+- price treatment
+- actions
 - contact icons
-- support/parts result row
-- external-resource link
-- AI starter/input
+- footer
+- external-resource gate
 
-Page-specific visual systems are not acceptable.
-
----
-
-## 27. What must not return
-
-Do not reintroduce:
-
-- giant black hero panels
-- giant generic headline sections
-- dominant first-screen search
-- long horizontal product carousels as primary mobile discovery
-- public workshop/process language
-- multiple font families
-- excessive bold typography
-- excessive orange
-- blank product placeholders when imagery exists
-- huge unexplained empty regions
-- vague far-away actions such as “View support”
-- silent external redirects
-- floating WhatsApp prompts
-- internal phone numbers as visible content
-- stale duplicate front ends
-- repo internals in public assets
+Do not invent a new visual system inside each HTML file.
 
 ---
 
-## 28. Page acceptance test
+## 28. Public vs internal data
 
-### First 10 seconds
+Public pages show customer-useful information.
 
-Can a new visitor immediately identify:
+Internal/source layers may hold:
 
-- TAGRO
-- ECHO
-- actual equipment
-- relevance to their work
-- one next action
+- serial applicability
+- verification status
+- provenance
+- suffix warnings
+- dealer-only notes
+- unresolved document matching
 
-### First 45 seconds
+Internal notes must not leak into public copy.
 
-Can they scan several machines and understand differences without opening every page?
+Do not invent missing values.
 
-### Model page
+---
 
-Can they see image + model + application + key facts + MRP + action quickly?
+## 29. Release acceptance test
 
-### Support / Parts
+Before release, independently test desktop and mobile.
 
-Can they identify their machine visually and know exactly what resources/actions are available?
+### First screen
 
-### AI
+Can a new visitor immediately see:
 
-Does the page invite a useful first sentence instead of demanding commitment to a generic chatbot?
+- TAGRO and ECHO
+- what this site offers
+- real machines
+- where to browse or ask
+
+### Navigation
+
+From **every page**, can the visitor reach:
+
+- Equipment
+- Support
+- Parts
+- Ask AI
+- Chainsaws
+- Brushcutters
+- Hedge trimmers
+- Blowers
+- Other equipment
+
+without navigation covering the page?
+
+### Product
+
+Can the visitor see machine image + model + useful facts + MRP quickly?
 
 ### Freedom
 
-Can the visitor:
+Can the visitor continue, switch classification, go back, compare, ask, contact or leave without surprise?
 
-- go back
-- continue browsing
-- compare
-- ask
-- contact
-- open resources intentionally
+### Mobile-specific
 
-without surprises?
+Verify:
 
-### Consistency
+- TAGRO logo visibly renders
+- ECHO logo visibly renders
+- neither is stretched or cropped
+- top header does not overlap the title
+- bottom navigation does not cover content or the composer
+- classification strip remains usable
+- no accidental page-wide horizontal scrolling
 
-Do Equipment, Model, Support, Parts, AI and Resources feel like one product?
+### Return visitor
 
-### Desktop
-
-Does width improve understanding rather than create emptiness?
-
-### Mobile
-
-Can the primary journey be completed one-handed with normal vertical scrolling?
+Can someone who saw the site days earlier quickly recognise the brand and relocate the same product category without relearning the interface?
 
 ---
 
-## 29. Mandatory implementation procedure
+## 30. Final governing principle
 
-Before changing public UI/UX:
+**A visitor should notice the machine, trust the seller, understand the choice and always know where they can go next.**
 
-1. Read this manifest completely.
-2. Inspect every affected page and shared component completely.
-3. Inspect both desktop and mobile behaviour.
-4. Preserve working data/functions unless intentionally replaced.
-5. Prefer coordinated rewrites over isolated patches when the system is drifting.
-6. Verify logos, images, paths, navigation and external-link behaviour.
-7. Check for overflow and hidden content.
-8. Check missing-data states.
-9. Check keyboard/focus behaviour.
-10. Perform flaw-first review before aesthetic approval.
-11. Do not claim completion without checking the changed code and rendered paths.
-12. If the owner establishes a new enduring rule, rewrite this manifest accordingly rather than accumulating contradictory addenda.
-
----
-
-## 30. Final design law
-
-**Attention is earned by relevance. Confidence is earned by clarity. Interest is earned by the product. Action is earned by removing uncertainty.**
-
-The best page should feel almost effortless: the visitor notices the machine, understands why it might matter, and always knows what they can do next.
+The best public experience is not the one with the most features. It is the one with the least friction, least uncertainty and strongest reason to return.
