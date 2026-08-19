@@ -14,9 +14,31 @@
   const currentFamily=page==='equipment'?(params.get('family')||'All'):'';
   const gate=(url,label,source,model='')=>`resources.html?url=${encodeURIComponent(url)}&label=${encodeURIComponent(label)}&source=${encodeURIComponent(source)}${model?`&model=${encodeURIComponent(model)}`:''}`;
   const productLink=family=>family==='All'?'index.html':`index.html?family=${encodeURIComponent(family)}`;
+  const brandSources={mobile:'assets/brand/tagro-echo-mobile.data',desktop:'assets/brand/tagro-echo-desktop.data'};
+  let brandAbort;
+  async function hydrateBrand(){
+    const img=document.querySelector('.cobrand-mark');
+    if(!img)return;
+    const mode=matchMedia('(max-width:768px)').matches?'mobile':'desktop';
+    if(img.dataset.mode===mode)return;
+    img.dataset.mode=mode;
+    try{
+      brandAbort?.abort();
+      brandAbort=new AbortController();
+      const r=await fetch(brandSources[mode],{signal:brandAbort.signal,cache:'force-cache'});
+      if(!r.ok)throw new Error('brand');
+      const b64=(await r.text()).trim();
+      img.src='data:image/png;base64,'+b64;
+    }catch(e){
+      if(e.name!=='AbortError')img.src='assets/brand/echo-logo-dark.svg';
+    }
+  }
   const header=document.querySelector('[data-shell="header"]');
   if(header){
-    header.outerHTML=`<header class="site-header"><div class="header-inner"><a class="brand-lock" href="index.html" aria-label="TAGRO ECHO home"><img class="tagro-mark" src="assets/brand/tagro-logo.png" alt="TAGRO" onerror="this.src='assets/brand/tagro-logo-actual.webp'"><span class="brand-cross" aria-hidden="true">×</span><img class="echo-mark" src="assets/brand/echo-logo-dark.svg" alt="ECHO"></a><nav class="desktop-primary-nav primary-nav" aria-label="Primary navigation">${nav.map(([k,u,l])=>`<a href="${u}" class="${page===k?'active':''}">${icons[k]}<span>${l}</span></a>`).join('')}</nav></div><nav class="class-nav" aria-label="Browse product classifications">${classes.map(([k,l])=>`<a href="${productLink(k)}" class="${currentFamily===k?'active':''}">${l}</a>`).join('')}</nav></header><nav class="mobile-primary-nav primary-nav" aria-label="Primary navigation">${nav.map(([k,u,l])=>`<a href="${u}" class="${page===k?'active':''}">${icons[k]}<span>${l}</span></a>`).join('')}</nav>`;
+    header.outerHTML=`<header class="site-header"><div class="header-inner"><a class="brand-lock" href="index.html" aria-label="TAGRO ECHO home"><img class="cobrand-mark" alt="TAGRO × ECHO"></a><nav class="desktop-primary-nav primary-nav" aria-label="Primary navigation">${nav.map(([k,u,l])=>`<a href="${u}" class="${page===k?'active':''}">${icons[k]}<span>${l}</span></a>`).join('')}</nav></div><nav class="class-nav" aria-label="Browse product classifications">${classes.map(([k,l])=>`<a href="${productLink(k)}" class="${currentFamily===k?'active':''}">${l}</a>`).join('')}</nav></header><nav class="mobile-primary-nav primary-nav" aria-label="Primary navigation">${nav.map(([k,u,l])=>`<a href="${u}" class="${page===k?'active':''}">${icons[k]}<span>${l}</span></a>`).join('')}</nav>`;
+    hydrateBrand();
+    const mq=matchMedia('(max-width:768px)');
+    if(mq.addEventListener)mq.addEventListener('change',hydrateBrand);
   }
   const footer=document.querySelector('[data-shell="footer"]');
   if(footer){
