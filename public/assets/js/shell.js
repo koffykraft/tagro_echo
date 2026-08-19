@@ -10,14 +10,16 @@
     mail:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>'
   };
   const nav=[['equipment','index.html','Equipment'],['support','service.html','Support'],['parts','parts.html','Parts'],['ai','assistant.html','Ask AI']];
+  const classes=[['All','All equipment'],['Chainsaws','Chainsaws'],['Brushcutters','Brushcutters'],['Hedge trimmers','Hedge trimmers'],['Blowers','Blowers'],['Other','Other equipment']];
   const gate=(url,label,source,model='')=>`resources.html?url=${encodeURIComponent(url)}&label=${encodeURIComponent(label)}&source=${encodeURIComponent(source)}${model?`&model=${encodeURIComponent(model)}`:''}`;
+  const productLink=(family)=>family==='All'?'index.html':`index.html?family=${encodeURIComponent(family)}`;
   const header=document.querySelector('[data-shell="header"]');
   if(header){
-    header.outerHTML=`<header class="site-header"><div class="header-inner"><a class="brand-lock" href="index.html" aria-label="TAGRO ECHO home"><img class="tagro-mark" src="assets/brand/tagro-logo.png" alt="TAGRO"><span class="brand-cross" aria-hidden="true">×</span><img class="echo-mark" src="assets/brand/echo-logo-dark.svg" alt="ECHO"></a><nav class="primary-nav" aria-label="Primary navigation">${nav.map(([k,u,l])=>`<a href="${u}" class="${page===k?'active':''}">${icons[k]}<span>${l}</span></a>`).join('')}</nav></div></header>`;
+    header.outerHTML=`<header class="site-header"><div class="header-inner"><a class="brand-lock" href="index.html" aria-label="TAGRO ECHO home"><img class="tagro-mark" src="assets/brand/tagro-logo.png" alt="TAGRO" onerror="this.src='assets/brand/tagro-logo-actual.webp'"><span class="brand-cross" aria-hidden="true">×</span><img class="echo-mark" src="assets/brand/echo-logo-dark.svg" alt="ECHO"></a><nav class="primary-nav" aria-label="Primary navigation">${nav.map(([k,u,l])=>`<a href="${u}" class="${page===k?'active':''}">${icons[k]}<span>${l}</span></a>`).join('')}</nav></div><nav class="class-nav" aria-label="Browse product classifications">${classes.map(([k,l])=>`<a href="${productLink(k)}">${l}</a>`).join('')}</nav></header>`;
   }
   const footer=document.querySelector('[data-shell="footer"]');
   if(footer){
     footer.outerHTML=`<footer class="site-footer"><div class="footer-inner"><div class="contact-actions"><a class="icon-action" href="https://wa.me/918921773291" aria-label="WhatsApp TAGRO" title="WhatsApp">${icons.whatsapp}</a><a class="icon-action" href="mailto:info@tagro.in" aria-label="Email TAGRO" title="Email">${icons.mail}</a></div><div class="external-links"><a href="${gate('https://www.tagro.in/','TAGRO website','TAGRO')}">Visit TAGRO website</a><a href="${gate('https://www.echo-india.com/en_us/','ECHO India website','ECHO India')}">Visit ECHO India website</a></div></div></footer>`;
   }
-  window.TAGRO_UI={icons,gate};
+  window.TAGRO_UI={icons,gate,productLink};
 })();
