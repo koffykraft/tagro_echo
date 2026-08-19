@@ -10,13 +10,14 @@
     mail:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>'
   };
   const nav=[['equipment','index.html','Equipment'],['support','service.html','Support'],['parts','parts.html','Parts'],['ai','assistant.html','Ask AI']];
+  const gate=(url,label,source,model='')=>`resources.html?url=${encodeURIComponent(url)}&label=${encodeURIComponent(label)}&source=${encodeURIComponent(source)}${model?`&model=${encodeURIComponent(model)}`:''}`;
   const header=document.querySelector('[data-shell="header"]');
   if(header){
     header.outerHTML=`<header class="site-header"><div class="header-inner"><a class="brand-lock" href="index.html" aria-label="TAGRO ECHO home"><img src="assets/brand/tagro-logo-actual.webp" alt="TAGRO"><span aria-hidden="true">×</span><img src="assets/brand/echo-logo-dark.svg" alt="ECHO"></a><nav class="primary-nav" aria-label="Primary">${nav.map(([k,u,l])=>`<a href="${u}" class="${page===k?'active':''}">${icons[k]}<span>${l}</span></a>`).join('')}</nav></div></header>`;
   }
   const footer=document.querySelector('[data-shell="footer"]');
   if(footer){
-    footer.outerHTML=`<footer class="site-footer"><div class="footer-inner"><div class="contact-actions"><a class="icon-action" href="https://wa.me/918921773291" aria-label="WhatsApp TAGRO" title="WhatsApp">${icons.whatsapp}</a><a class="icon-action" href="mailto:info@tagro.in" aria-label="Email TAGRO" title="Email">${icons.mail}</a></div><div class="external-links"><a href="https://www.tagro.in/" target="_blank" rel="noopener">Visit TAGRO website</a><a href="https://www.echo-india.com/en_us/" target="_blank" rel="noopener">Visit ECHO India website</a></div></div></footer>`;
+    footer.outerHTML=`<footer class="site-footer"><div class="footer-inner"><div class="contact-actions"><a class="icon-action" href="https://wa.me/918921773291" aria-label="WhatsApp TAGRO" title="WhatsApp">${icons.whatsapp}</a><a class="icon-action" href="mailto:info@tagro.in" aria-label="Email TAGRO" title="Email">${icons.mail}</a></div><div class="external-links"><a href="${gate('https://www.tagro.in/','TAGRO website','TAGRO')}">Visit TAGRO website</a><a href="${gate('https://www.echo-india.com/en_us/','ECHO India website','ECHO India')}">Visit ECHO India website</a></div></div></footer>`;
   }
-  window.TAGRO_UI={icons};
+  window.TAGRO_UI={icons,gate};
 })();
