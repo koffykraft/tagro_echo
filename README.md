@@ -2,6 +2,10 @@
 
 Standalone TAGRO × ECHO equipment, service and AI-assistant site for Cloudflare Workers.
 
+## Governing design handoff
+
+Before changing any public UI/UX, read **[DESIGN_MANIFEST.md](DESIGN_MANIFEST.md)** completely. It is the persistent design contract for desktop/mobile behaviour, visual hierarchy, typography, colour, navigation, product pages, AI behaviour, accessibility, content discipline and future UI work.
+
 Current architecture:
 - Static assets served only from `public/`
 - Worker API under `/api/*`
