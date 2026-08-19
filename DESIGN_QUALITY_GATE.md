@@ -82,7 +82,22 @@ Preserve:
 - selected model context
 - return/back paths
 
-### 7. Flaw-first review
+### 7. External destinations require informed choice
+TAGRO must not silently push a visitor to another website.
+
+Rules:
+- all normal external web destinations route through the internal `resources.html` gateway first
+- the gateway names the destination and operator clearly
+- the gateway states that the visitor is leaving TAGRO
+- the gateway warns that the external site may use its own cookies, analytics or privacy practices
+- only the visitor's explicit **Continue** action opens the external site
+- use `noopener noreferrer` on the final external link
+- provide a clear way back to the current model or TAGRO page
+- external manuals, parts sites, TAGRO website and ECHO India website follow the same rule
+
+Direct `mailto:` and user-initiated WhatsApp actions are contact actions, not silent browsing redirects, and may remain direct.
+
+### 8. Flaw-first review
 Before judging beauty, inspect for defects.
 
 Review in this order:
@@ -94,7 +109,7 @@ Review in this order:
 6. hierarchy / hook
 7. visual refinement
 
-### 8. Desktop and mobile must pass independently
+### 9. Desktop and mobile must pass independently
 Do not approve a page because one viewport looks correct.
 
 Check both designs separately for:
@@ -109,7 +124,7 @@ Check both designs separately for:
 - back/return behaviour
 - external-link clarity
 
-### 9. Release rule
+### 10. Release rule
 A page is not ready because it is mostly correct.
 
 If a visible defect materially weakens trust or flow, fix it before release rather than compensating with more content or decoration.
