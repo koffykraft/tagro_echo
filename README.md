@@ -1,11 +1,12 @@
-# TAGRO ECHO Equipment Library
+# TAGRO ECHO
 
-Static, GitHub Pages-ready equipment knowledge dock for the ECHO India portfolio.
+Standalone TAGRO × ECHO equipment, service and AI-assistant site for Cloudflare Workers.
 
-- Searchable model catalogue
-- One page per base model
-- Service/manual discovery
-- Parts/IPL links
-- Data in JSON/CSV for later TAGRO integration
+Current architecture:
+- Static assets served only from `public/`
+- Worker API under `/api/*`
+- Anthropic Claude Sonnet 4.6 through Cloudflare AI Gateway `tagro-echo-ai`
+- Cloudflare gateway authentication token stored as Worker secret `CF_AIG_TOKEN`
+- Existing ECHO model catalogue and stable per-model pages preserved
 
-Prices are based on the supplied Kerala dealer price list effective 17 July 2026. Manual and parts applicability must be checked by exact model suffix and serial number.
+The public site is intentionally open at this stage. Authentication/customer persistence/WhatsApp integration will be added incrementally after the AI proxy is verified.
